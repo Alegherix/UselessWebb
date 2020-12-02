@@ -12,7 +12,6 @@ function getToogleTimeline(element) {
     onStart: () => {
       element.classList.toggle('gone');
     },
-    onComplete: () => {},
   });
 }
 
@@ -36,4 +35,11 @@ function getToogleTimelineTest(element, imgSrc = null) {
       img.src = '';
     },
   });
+}
+
+// Used for creating a wrapper for easy cleanup
+function getWrapperContainer(containerName) {
+  const container = document.createElement('div');
+  container.classList = containerName;
+  return container;
 }
