@@ -12,5 +12,28 @@ function getToogleTimeline(element) {
     onStart: () => {
       element.classList.toggle('gone');
     },
+    onComplete: () => {},
+  });
+}
+
+// Clean up multiple timelines, where they can't have their own onComplete
+function cleanup(...elements) {
+  elements.forEach((elem) => {
+    elem.classList.toggle('gone');
+    elem.src = '';
+  });
+}
+
+// Used for creating a timeline with onStart and onComplete which removes an element
+function getToogleTimelineTest(element, imgSrc = null) {
+  return gsap.timeline({
+    onStart: () => {
+      element.src = imgSrc ?? '/assets/elon/gulp.jpg';
+      element.classList.toggle('test');
+    },
+    onComplete: () => {
+      element.classList.toggle('test');
+      img.src = '';
+    },
   });
 }

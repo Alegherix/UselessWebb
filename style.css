@@ -17,24 +17,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .elonImg {
   opacity: 0;
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .descriptionText {
   color: white;
   font-size: 40px;
   opacity: 0;
-  /* position: absolute; */
 }
 
 .gone {
   display: none;
-  /* z-index: -1; */
 }
 
 .bg,
@@ -52,10 +55,13 @@ body {
 }
 
 .test {
-  height: 100px;
-  width: 100px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
   z-index: 2;
-  opacity: 1;
+  /* opacity: 1; */
 }
 
 .uranus {
@@ -65,4 +71,13 @@ body {
   top: 0%;
   left: 30%;
   z-index: 3;
+}
+
+.boyVisiting {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  left: 0;
+  top: 20%;
+  z-index: 4;
 }
