@@ -240,7 +240,7 @@ function findingAlienFriend() {
   alienContainer.append(question);
 
   const tlOne = getToogleTimeline(alien);
-  tlOne.from('.weedAlien', 1.6, {
+  tlOne.from('.weedAlien', 1.1, {
     opacity: 0,
   });
 
@@ -282,7 +282,7 @@ function boyAnsweringAlien() {
   alienContainer.append(question);
 
   const tlOne = getToogleTimeline(alien);
-  tlOne.from('.boyAnswering', 1.2, {
+  tlOne.from('.boyAnswering', 0.8, {
     ease: 'SlowMo.ease.config(0.7, 0.7, false)',
     opacity: 0,
   });
@@ -306,14 +306,150 @@ function boyAnsweringAlien() {
   return masterTl;
 }
 
-function meetToad() {}
+function smokeTrip() {
+  //Skapa bakgrundsContainer
+  const tripContainer = getWrapperContainer('smoketripContainer', true);
+
+  const burgerBoy = getImgWithClass(
+    '/assets/smoketrip/burger_S.webp',
+    'burgerBoy',
+    'gone',
+    'bounce'
+  );
+  const popcornBoy = getImgWithClass(
+    '/assets/smoketrip/popcorn_S.webp',
+    'popcornBoy',
+    'gone'
+  );
+  const gulpBoy = getImgWithClass(
+    '/assets/smoketrip/gulp_S.webp',
+    'gulpBoy',
+    'gone',
+    'bounce'
+  );
+  const pizza = getImgWithClass(
+    '/assets/smoketrip/pizza_S.webp',
+    'pizza',
+    'gone',
+    'bounce'
+  );
+  tripContainer.appendChild(burgerBoy);
+  tripContainer.appendChild(popcornBoy);
+  tripContainer.appendChild(gulpBoy);
+  tripContainer.appendChild(pizza);
+  container.appendChild(tripContainer);
+
+  const tripTl = getToogleTimeline(tripContainer);
+  tripTl.from('.smoketripContainer', 0.6, {
+    opacity: 0,
+  });
+
+  const burgerBoyTl = getToogleTimeline(burgerBoy);
+  burgerBoyTl
+    .from('.burgerBoy', 1.5, {
+      opacity: 0,
+    })
+    .to('.burgerBoy', 1, {
+      opacity: 0,
+    });
+
+  const popcornBoyTL = getToogleTimeline(popcornBoy);
+  popcornBoyTL
+    .from('.popcornBoy', 0.2, {
+      opacity: 0,
+    })
+    .to('.popcornBoy', 1.5, {
+      rotation: -360,
+      transformOrigin: 'left 50%',
+      opacity: 0,
+    });
+
+  const gulpboyTl = getToogleTimeline(gulpBoy);
+  gulpboyTl
+    .from('.gulpBoy', 1.5, {
+      opacity: 0,
+    })
+    .to('.gulpBoy', 1, {
+      opacity: 0,
+    });
+
+  const pizzaTL = getToogleTimeline(pizza);
+  pizzaTL
+    .from('.pizza', 1.5, {
+      opacity: 0,
+    })
+    .to('.pizza', 1, {
+      opacity: 0,
+      rotation: 360,
+    });
+
+  const fadeOut = gsap.timeline();
+  fadeOut.to('.smoketripContainer', 1, {
+    opacity: 0,
+  });
+
+  const masterTl = gsap.timeline({
+    onComplete: () => container.removeChild(tripContainer),
+  });
+  masterTl.add(tripTl);
+  masterTl.add(burgerBoyTl);
+  masterTl.add(popcornBoyTL, '-=0.6');
+  masterTl.add(gulpboyTl, '-=0.6');
+  masterTl.add(pizzaTL, '-=0.9');
+  masterTl.add(fadeOut, '-=0.5');
+
+  return masterTl;
+}
+
+function meetToad() {
+  const toadEncounterContainer = getWrapperContainer('toadEncounter', true);
+
+  const toad = getImgWithClass(
+    '/assets/toadEncounter/trippToad.png',
+    'toad',
+    'gone'
+  );
+
+  const talk = getImgWithClass(
+    '/assets/toadEncounter/trySome.png',
+    'talk',
+    'gone'
+  );
+
+  toadEncounterContainer.appendChild(toad);
+  toadEncounterContainer.appendChild(talk);
+  container.appendChild(toadEncounterContainer);
+
+  const containerTl = getToogleTimeline(toadEncounterContainer);
+  containerTl.from('.toadEncounter', 0.6, {
+    opacity: 0,
+  });
+
+  const toadTl = getToogleTimeline(toad);
+  toadTl.from('.toad', 1.6, {
+    bottom: '-40%',
+  });
+
+  const talkTl = getToogleTimeline(talk);
+  talkTl.from('.talk', 1.6, {
+    opacity: 0,
+  });
+
+  return getMasterTimeline(
+    container,
+    toadEncounterContainer,
+    'toadEncounter',
+    containerTl,
+    toadTl,
+    talkTl
+  );
+}
 
 // Run all logic
 function main() {
   master
     // .add(baseAnimation())
     // .add(animateAndUpdateText('Full of ambitions, as grand as can be'))
-    // .add(animateElon())
     // .add(animateAndUpdateText('Dreaming of other places'))
     // .add(addStory('/assets/elon/computer.jpg'))
     // .add(animateAndUpdateText('In a sleepy haze, he said to himself'))
@@ -324,13 +460,17 @@ function main() {
     // .add(addStory('./assets/elon/flyingAway.jpg'))
     // .add(animateAndUpdateText('He travelled many planets'))
     // .add(addPlanets())
-    .add(findingHostileEnviroment());
-  // .add(animateAndUpdateText('He made some friends along the way'))
-  // .add(animateAndUpdateText('And then he made some more'))
-  // .add(findingAlienFriend())
-  // .add(boyAnsweringAlien())
-  // .add(animateAndUpdateText('The young boy bravely exclaimed!'));
+    // .add(findingHostileEnviroment())
+    // .add(animateAndUpdateText('He made some friends along the way'))
+    // .add(animateAndUpdateText('And then he made some more'))
+    .add(findingAlienFriend())
+    .add(boyAnsweringAlien())
+    .add(animateAndUpdateText('Without hesitation he inhaled'))
+    .add(smokeTrip())
+    .add(animateAndUpdateText('He felt a tap on his shoulder'))
+    .add(meetToad());
 
+  // .add(animateAndUpdateText('You probably know his name'));
   // .add(animateAndUpdateText('You probably know his name'));
   // .add(animateElonSecond())
   // .add(animateAndUpdateText('ELON MUSK'));

@@ -38,8 +38,37 @@ function getToogleTimelineTest(element, imgSrc = null) {
 }
 
 // Used for creating a wrapper for easy cleanup
-function getWrapperContainer(containerName) {
+function getWrapperContainer(containerName, gone = false) {
   const container = document.createElement('div');
   container.classList = containerName;
+  if (gone) container.classList.add('gone');
   return container;
+}
+
+function getFadeoutTL(container) {
+  const fadeOut = gsap.timeline();
+  fadeOut.to(container, 1, {
+    opacity: 0,
+  });
+}
+
+// Used for creating a timeline which deletes Container
+// and fades out
+function getMasterTimeline(
+  parentContainer,
+  contentContainer,
+  contentContainerClassName,
+  ...timelines
+) {
+  const master = gsap.timeline({
+    // onComplete: () => parentContainer.removeChild(contentContainer),
+  });
+  timelines.forEach((tl) => master.add(tl));
+
+  // const fadeOut = gsap.timeline();
+  // fadeOut.to(`.${contentContainerClassName}`, 0.6, {
+  //   opacity: 0,
+  // });
+  // master.add(fadeOut);
+  return master;
 }

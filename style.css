@@ -9,6 +9,81 @@ body {
   overflow: hidden;
 }
 
+.bounce {
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+          animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(1.1, 0.9) translateY(0);
+            transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(0.9, 1.1) translateY(-50px);
+            transform: scale(0.9, 1.1) translateY(-50px);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 0.95) translateY(0);
+            transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(-7px);
+            transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(1.1, 0.9) translateY(0);
+            transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(0.9, 1.1) translateY(-50px);
+            transform: scale(0.9, 1.1) translateY(-50px);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 0.95) translateY(0);
+            transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(-7px);
+            transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+
 .animationContainer {
   position: absolute;
   top: 0;
@@ -123,75 +198,6 @@ body {
           animation-duration: 1s;
 }
 
-.hostile .bounce {
-  -webkit-animation-name: bounce;
-          animation-name: bounce;
-  -webkit-animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
-          animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
-}
-
-@-webkit-keyframes bounce {
-  0% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  10% {
-    -webkit-transform: scale(1.1, 0.9) translateY(0);
-            transform: scale(1.1, 0.9) translateY(0);
-  }
-  30% {
-    -webkit-transform: scale(0.9, 1.1) translateY(-100px);
-            transform: scale(0.9, 1.1) translateY(-100px);
-  }
-  50% {
-    -webkit-transform: scale(1.05, 0.95) translateY(0);
-            transform: scale(1.05, 0.95) translateY(0);
-  }
-  57% {
-    -webkit-transform: scale(1, 1) translateY(-7px);
-            transform: scale(1, 1) translateY(-7px);
-  }
-  64% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  100% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-}
-
-@keyframes bounce {
-  0% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  10% {
-    -webkit-transform: scale(1.1, 0.9) translateY(0);
-            transform: scale(1.1, 0.9) translateY(0);
-  }
-  30% {
-    -webkit-transform: scale(0.9, 1.1) translateY(-100px);
-            transform: scale(0.9, 1.1) translateY(-100px);
-  }
-  50% {
-    -webkit-transform: scale(1.05, 0.95) translateY(0);
-            transform: scale(1.05, 0.95) translateY(0);
-  }
-  57% {
-    -webkit-transform: scale(1, 1) translateY(-7px);
-            transform: scale(1, 1) translateY(-7px);
-  }
-  64% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  100% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-}
-
 .hostile .hostileBoy {
   position: absolute;
   height: 200px;
@@ -240,5 +246,140 @@ body {
 
 .alienQuestion {
   top: 10%;
+}
+
+.smoketripContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(134deg, #ff0000, #00ff0a);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 2s ease infinite;
+  animation: AnimationName 2s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.smoketripContainer .burgerBoy {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.smoketripContainer .popcornBoy {
+  position: absolute;
+  bottom: 8%;
+  left: 39%;
+  -webkit-animation: popcornBoyAnim 1s ease infinite;
+          animation: popcornBoyAnim 1s ease infinite;
+}
+
+.smoketripContainer .gulpBoy {
+  position: absolute;
+  bottom: 14%;
+  left: 52%;
+}
+
+.smoketripContainer .pizza {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+@-webkit-keyframes popcornBoyAnim {
+  0% {
+    rotate: 90;
+  }
+  50% {
+    background-position: 100% 50%;
+    rotation: 280;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes popcornBoyAnim {
+  0% {
+    rotate: 90;
+  }
+  50% {
+    background-position: 100% 50%;
+    rotation: 280;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.toadEncounter {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(345deg, #e44f4f, #e4da4f, #92e44f, #4fe4b7, #4faee4, #7a4fe4, #c94fe4, #e44f96, #e44f4f);
+  background-size: 1800% 1800%;
+  -webkit-animation: AnimationName 2s ease infinite;
+  animation: AnimationName 2s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 57% 0%;
+  }
+  50% {
+    background-position: 44% 100%;
+  }
+  100% {
+    background-position: 57% 0%;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 57% 0%;
+  }
+  50% {
+    background-position: 44% 100%;
+  }
+  100% {
+    background-position: 57% 0%;
+  }
+}
+
+.toadEncounter .toad {
+  position: absolute;
+  height: 100%;
+  left: 20%;
+}
+
+.toadEncounter .talk {
+  position: absolute;
+  right: 8%;
+  top: 10%;
+  width: 25%;
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
 }
 /*# sourceMappingURL=style.css.map */

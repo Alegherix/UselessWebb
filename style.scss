@@ -7,6 +7,42 @@ body {
   overflow: hidden;
 }
 
+// Utility animation
+
+.bounce {
+  animation-name: bounce;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-50px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+//
+
 .animationContainer {
   position: absolute;
   top: 0;
@@ -110,35 +146,6 @@ body {
     animation-duration: 1s;
   }
 
-  .bounce {
-    animation-name: bounce;
-    animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
-  }
-
-  @keyframes bounce {
-    0% {
-      transform: scale(1, 1) translateY(0);
-    }
-    10% {
-      transform: scale(1.1, 0.9) translateY(0);
-    }
-    30% {
-      transform: scale(0.9, 1.1) translateY(-100px);
-    }
-    50% {
-      transform: scale(1.05, 0.95) translateY(0);
-    }
-    57% {
-      transform: scale(1, 1) translateY(-7px);
-    }
-    64% {
-      transform: scale(1, 1) translateY(0);
-    }
-    100% {
-      transform: scale(1, 1) translateY(0);
-    }
-  }
-
   .hostileBoy {
     position: absolute;
     height: 200px;
@@ -181,4 +188,158 @@ body {
 
 .alienQuestion {
   top: 10%;
+}
+
+.smoketripContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(134deg, #ff0000, #00ff0a);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 2s ease infinite;
+  -moz-animation: AnimationName 2s ease infinite;
+  animation: AnimationName 2s ease infinite;
+
+  @-webkit-keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @-moz-keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .burgerBoy {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+  }
+
+  .popcornBoy {
+    position: absolute;
+    bottom: 8%;
+    left: 39%;
+    animation: popcornBoyAnim 1s ease infinite;
+  }
+
+  .gulpBoy {
+    position: absolute;
+    bottom: 14%;
+    left: 52%;
+  }
+
+  .pizza {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+  }
+
+  @keyframes popcornBoyAnim {
+    0% {
+      rotate: 90;
+    }
+    50% {
+      background-position: 100% 50%;
+      rotation: 280;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.toadEncounter {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    345deg,
+    #e44f4f,
+    #e4da4f,
+    #92e44f,
+    #4fe4b7,
+    #4faee4,
+    #7a4fe4,
+    #c94fe4,
+    #e44f96,
+    #e44f4f
+  );
+  background-size: 1800% 1800%;
+
+  -webkit-animation: AnimationName 2s ease infinite;
+  -moz-animation: AnimationName 2s ease infinite;
+  animation: AnimationName 2s ease infinite;
+
+  @-webkit-keyframes AnimationName {
+    0% {
+      background-position: 57% 0%;
+    }
+    50% {
+      background-position: 44% 100%;
+    }
+    100% {
+      background-position: 57% 0%;
+    }
+  }
+  @-moz-keyframes AnimationName {
+    0% {
+      background-position: 57% 0%;
+    }
+    50% {
+      background-position: 44% 100%;
+    }
+    100% {
+      background-position: 57% 0%;
+    }
+  }
+  @keyframes AnimationName {
+    0% {
+      background-position: 57% 0%;
+    }
+    50% {
+      background-position: 44% 100%;
+    }
+    100% {
+      background-position: 57% 0%;
+    }
+  }
+
+  .toad {
+    position: absolute;
+    height: 100%;
+    left: 20%;
+  }
+
+  .talk {
+    position: absolute;
+    right: 8%;
+    top: 10%;
+    width: 25%;
+    transform: rotate(20deg);
+  }
 }
