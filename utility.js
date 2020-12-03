@@ -61,14 +61,14 @@ function getMasterTimeline(
   ...timelines
 ) {
   const master = gsap.timeline({
-    // onComplete: () => parentContainer.removeChild(contentContainer),
+    onComplete: () => parentContainer.removeChild(contentContainer),
   });
   timelines.forEach((tl) => master.add(tl));
 
-  // const fadeOut = gsap.timeline();
-  // fadeOut.to(`.${contentContainerClassName}`, 0.6, {
-  //   opacity: 0,
-  // });
-  // master.add(fadeOut);
+  const fadeOut = gsap.timeline();
+  fadeOut.to(`.${contentContainerClassName}`, 0.6, {
+    opacity: 0,
+  });
+  master.add(fadeOut);
   return master;
 }
