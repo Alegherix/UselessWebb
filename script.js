@@ -94,7 +94,6 @@ function addPlanets() {
     'gone'
   );
 
-  // Byt ut mot .png boy
   const flyingBoy = getImgWithClass(
     './assets/elon/flyingAway.png',
     'boyVisiting',
@@ -130,9 +129,9 @@ function addPlanets() {
   });
 
   const tlFive = getToogleTimeline(flyingBoy);
-  tlFive.to('.boyVisiting', 6, {
+  tlFive.to('.boyVisiting', 4, {
     motionPath: {
-      path: 'M -200 150 q 150 -300 2320 0',
+      path: 'M -200 150 q 150 -300 2150 0',
     },
   });
 
@@ -143,7 +142,7 @@ function addPlanets() {
   masterTl.add(tlTwo);
   masterTl.add(tlThree);
   masterTl.add(tlFour);
-  masterTl.add(tlFive);
+  masterTl.add(tlFive, '-=0.4');
 
   return masterTl;
 }
@@ -160,12 +159,20 @@ function findingHostileEnviroment() {
   const greenDino = getImgWithClass(
     '/assets/hostileEncounter/greenDinosaur_S.webp',
     'greenDino',
-    'fadeIn'
+    'fadeIn',
+    'bounce'
   );
   const blueDino = getImgWithClass(
     '/assets/hostileEncounter/dinosaur_S.webp',
     'blueDino',
-    'fadeIn'
+    'fadeIn',
+    'bounce'
+  );
+
+  const flyingBoy = getImgWithClass(
+    './assets/elon/flyingAway.png',
+    'hostileBoy',
+    'gone'
   );
 
   const hostileContainer = getWrapperContainer('hostile');
@@ -173,6 +180,7 @@ function findingHostileEnviroment() {
   hostileContainer.appendChild(land);
   hostileContainer.appendChild(blueDino);
   hostileContainer.appendChild(greenDino);
+  hostileContainer.appendChild(flyingBoy);
   container.appendChild(hostileContainer);
 
   const tlOne = getToogleTimeline(land);
@@ -180,44 +188,33 @@ function findingHostileEnviroment() {
     opacity: 0,
   });
 
-  const tlTwo = getToogleTimeline(greenDino);
-  tlOne.from('.fadeIn', 1, {
+  const fadeInDinos = gsap.timeline({
+    onStart: () => console.log('Starting dino fadein'),
+  });
+  fadeInDinos.from('.fadeIn', 1, {
     opacity: 0,
-    stagger: 0.3,
+    stagger: 0.4,
   });
 
-  // const tlThree = getToogleTimeline(blueDino);
-  // tlOne.from('.blueDino', 0.6, {
-  //   opacity: 0,
-  // });
-
-  const tlFour = gsap.timeline();
-  tlFour.to('.blueDino', 0.1, { y: '+=20', yoyo: true, repeat: -1 });
-  tlFour.to('.blueDino', 0.1, { y: '-=20', yoyo: true, repeat: -1 });
-
-  const tlFive = gsap.timeline();
-  tlFour.to('.greenDino', 0.15, {
-    y: '+=20',
-    x: '+=3',
-    yoyo: true,
-    repeat: -1,
-  });
-  tlFour.to('.greenDino', 0.15, {
-    y: '-=20',
-    x: '0',
-    yoyo: true,
-    repeat: -1,
+  const boyRide = getToogleTimeline(flyingBoy);
+  boyRide.to('.hostileBoy', 5, {
+    motionPath: {
+      path: 'M -200 150 q 150 -500 2300 0',
+    },
   });
 
-  const tlSix = getToogleTimeline();
+  const fadeOut = gsap.timeline();
+  fadeOut.to('.hostile', 1, {
+    opacity: 0,
+  });
 
-  const masterTl = gsap.timeline();
+  const masterTl = gsap.timeline({
+    onComplete: () => container.removeChild(hostileContainer),
+  });
   masterTl.add(tlOne);
-  masterTl.add(tlTwo);
-
-  masterTl.add(tlFour);
-  masterTl.add(tlFive);
-
+  masterTl.add(fadeInDinos);
+  masterTl.add(boyRide, '-=1');
+  masterTl.add(fadeOut);
   return masterTl;
 }
 
@@ -254,7 +251,7 @@ function findingAlienFriend() {
       top: 0,
       scale: 1,
     })
-    .to('.alienContainer', 1, {
+    .to('.alienContainer', 1.6, {
       opacity: 0,
     });
   const masterTl = gsap.timeline({

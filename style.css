@@ -15,6 +15,8 @@ body {
   left: 0;
   height: 100vh;
   width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
   background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -92,12 +94,23 @@ body {
 
 .hostile {
   position: absolute;
-  width: 100%;
+}
+
+.hostile .blueDino,
+.hostile .greenDino {
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
 }
 
 .hostile .blueDino {
   position: absolute;
-  bottom: 14%;
+  bottom: 8%;
   right: 32%;
 }
 
@@ -106,6 +119,85 @@ body {
   bottom: 6%;
   right: 10%;
   width: 400px;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.hostile .bounce {
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+          animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(1.1, 0.9) translateY(0);
+            transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(0.9, 1.1) translateY(-100px);
+            transform: scale(0.9, 1.1) translateY(-100px);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 0.95) translateY(0);
+            transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(-7px);
+            transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(1.1, 0.9) translateY(0);
+            transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(0.9, 1.1) translateY(-100px);
+            transform: scale(0.9, 1.1) translateY(-100px);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 0.95) translateY(0);
+            transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(-7px);
+            transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+
+.hostile .hostileBoy {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  left: -10%;
+  top: 20%;
 }
 
 .alienContainer {
@@ -136,7 +228,8 @@ body {
   max-width: 70%;
 }
 
-.boyAnswer {
+.boyAnswer,
+.alienQuestion {
   position: absolute;
   -webkit-transform: scale(0.6);
   transform: scale(0.6);
@@ -146,11 +239,6 @@ body {
 }
 
 .alienQuestion {
-  position: absolute;
-  -webkit-transform: scale(0.6);
-  transform: scale(0.6);
   top: 10%;
-  width: 50%;
-  left: 58%;
 }
 /*# sourceMappingURL=style.css.map */
