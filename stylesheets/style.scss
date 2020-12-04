@@ -161,4 +161,22 @@ button {
 .memeGallery {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+
+  h2 {
+    padding: 1rem;
+  }
+  .galleryContainer {
+    display: flex;
+    justify-content: center;
+    // flex-direction: column;
+    flex-wrap: wrap;
+
+    img {
+      width: 100%;
+      max-width: 550px;
+    }
+  }
 }
