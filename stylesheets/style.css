@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url("/fonts/Roboto-Regular.woff") format("woff"), url("/fonts/Roboto-Regular.woff2") format("woff2");
+  /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url("/fonts/Roboto-Bold.woff") format("woff"), url("/fonts/Roboto-Bold.woff2") format("woff2");
+  /* Modern Browsers */
+  font-weight: bold;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +22,154 @@
 }
 
 body {
-  overflow: hidden;
+  background-color: #1f1f1f;
+  font-family: 'Roboto-Regular';
+}
+
+h1 {
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 32px;
+  color: #00ee43;
+}
+
+h1,
+h3,
+p {
+  color: white;
+}
+
+button {
+  background-color: #00ee43;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+button:hover {
+  background-color: #0ac940;
+}
+
+.partyContainer {
+  height: 225px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.partyContainer.party {
+  background: -webkit-gradient(linear, right top, left top, from(#dc00ff), to(#00f2ff));
+  background: linear-gradient(270deg, #dc00ff, #00f2ff);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 6s ease infinite;
+  animation: AnimationName 6s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.partyContainer .partyBtn {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.knowledgeContainer {
+  text-align: center;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.8rem;
+  background-color: #3e3e3e;
+  padding-bottom: 2rem;
+}
+
+.knowledgeContainer p {
+  padding: 0rem 2rem;
+}
+
+.stockTipsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem;
+  background-color: #2c2c2c;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stockTipsContainer .dankTips {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.stockTipsContainer .lifeSavings {
+  color: #bbb;
+  font-size: 14px;
+}
+
+.stockTipsContainer .stocktip {
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 60px;
+}
+
+.stockTipsContainer .stocktipBtn {
+  width: 80%;
+  padding: 0.5rem;
+}
+
+.memeGallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 /*# sourceMappingURL=style.css.map */

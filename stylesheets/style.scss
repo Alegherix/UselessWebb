@@ -1,6 +1,25 @@
-$buttonColor: #74ff43;
-$primaryBg: #1f1f1f;
-$secondaryBg: #3e3e3e;
+$lawn: #00ee43;
+$midnight: #1f1f1f;
+$night: #2c2c2c;
+$evening: #3e3e3e;
+
+@font-face {
+  font-family: 'Roboto-Regular';
+
+  src: url('/fonts/Roboto-Regular.woff') format('woff'),
+    /* Modern Browsers */ url('/fonts/Roboto-Regular.woff2') format('woff2'); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+
+  src: url('/fonts/Roboto-Bold.woff') format('woff'),
+    /* Modern Browsers */ url('/fonts/Roboto-Bold.woff2') format('woff2'); /* Modern Browsers */
+  font-weight: bold;
+  font-style: normal;
+}
 
 * {
   margin: 0;
@@ -8,14 +27,138 @@ $secondaryBg: #3e3e3e;
   box-sizing: border-box;
 }
 body {
-  overflow: hidden;
+  //   overflow: hidden;
+  background-color: $midnight;
+  font-family: 'Roboto-Regular';
+}
+
+h1 {
+  font-size: 34px;
+}
+h2 {
+  font-size: 32px;
+  color: $lawn;
+}
+
+h1,
+h3,
+p {
+  color: white;
+}
+
+button {
+  background-color: $lawn;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+
+  &:hover {
+    background-color: #0ac940;
+  }
 }
 
 .partyContainer {
+  height: 225px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.5rem 0;
+
+  &.party {
+    background: linear-gradient(270deg, #dc00ff, #00f2ff);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 6s ease infinite;
+    -moz-animation: AnimationName 6s ease infinite;
+    animation: AnimationName 6s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    @-moz-keyframes AnimationName {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    @keyframes AnimationName {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
+
+  .partyBtn {
+    justify-self: center;
+    align-self: center;
+  }
 }
 
 .knowledgeContainer {
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  background-color: $evening;
+  padding-bottom: 2rem;
+
+  p {
+    padding: 0rem 2rem;
+  }
 }
 
 .stockTipsContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: $night;
+  align-items: center;
+
+  .dankTips {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+  }
+
+  .lifeSavings {
+    color: #bbb;
+    font-size: 14px;
+  }
+
+  .stocktip {
+    text-align: center;
+    margin: 3rem 0;
+    font-size: 60px;
+  }
+  .stocktipBtn {
+    width: 80%;
+    padding: 0.5rem;
+  }
+}
+
+.memeGallery {
+  display: flex;
+  flex-wrap: wrap;
 }

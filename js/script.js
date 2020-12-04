@@ -7,14 +7,12 @@ const skipButtonClick = () => {
   });
 };
 
-// skipButtonClick();
-
-async function getMessage() {
-  const data = await fetch('https://www.foaas.com/asshole/martin', {
-    method: 'GET',
-    headers: { Accept: 'application/json' },
+const startTheParty = () => {
+  const btn = document.querySelector('.partyBtn');
+  btn.addEventListener('click', () => {
+    document.querySelector('.partyContainer').classList.toggle('party');
+    console.log('clicked');
   });
-  const res = await data.json();
-  console.log(res);
-}
-getMessage();
+};
+startTheParty();
+// skipButtonClick();
