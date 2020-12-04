@@ -45,7 +45,7 @@ function animateElon() {
 function animateElonSecond() {
   const tl = gsap.timeline({
     onStart: () => {
-      img.src = './assets/memelord.jpg';
+      img.src = '../assets/memelord.jpg';
       img.classList.toggle('gone');
       text.classList.toggle('gone');
     },
@@ -81,21 +81,21 @@ function addStory(imgPath) {
 }
 
 function addPlanets() {
-  const bg = getImgWithClass('./assets/planet/background.png', 'bg', 'gone');
-  const mid = getImgWithClass('./assets/planet/mid.png', 'mid', 'gone');
+  const bg = getImgWithClass('../assets/planet/background.png', 'bg', 'gone');
+  const mid = getImgWithClass('../assets/planet/mid.png', 'mid', 'gone');
   const side = getImgWithClass(
-    './assets/planet/foreground.png',
+    '../assets/planet/foreground.png',
     'side',
     'gone'
   );
   const uranus = getImgWithClass(
-    './assets/planet/uranus.png',
+    '../assets/planet/uranus.png',
     'uranus',
     'gone'
   );
 
   const flyingBoy = getImgWithClass(
-    './assets/elon/flyingAway.png',
+    '../assets/elon/flyingAway.png',
     'boyVisiting',
     'gone'
   );
@@ -151,26 +151,26 @@ function findFriends() {}
 
 function findingHostileEnviroment() {
   const land = getImgWithClass(
-    '/assets/hostileEncounter/hostileLand.webp',
+    '../assets/hostileEncounter/hostileLand.webp',
     'land',
     'gone'
   );
 
   const greenDino = getImgWithClass(
-    '/assets/hostileEncounter/greenDinosaur_S.webp',
+    '../assets/hostileEncounter/greenDinosaur_S.webp',
     'greenDino',
     'fadeIn',
     'bounce'
   );
   const blueDino = getImgWithClass(
-    '/assets/hostileEncounter/dinosaur_S.webp',
+    '../assets/hostileEncounter/dinosaur_S.webp',
     'blueDino',
     'fadeIn',
     'bounce'
   );
 
   const flyingBoy = getImgWithClass(
-    './assets/elon/flyingAway.png',
+    '../assets/elon/flyingAway.png',
     'hostileBoy',
     'gone'
   );
@@ -222,12 +222,12 @@ function findingHostileEnviroment() {
 // Uses a separate div containing images for easy cleanup
 function findingAlienFriend() {
   const alien = getImgWithClass(
-    '/assets/alienEncounter/weedAlien.png',
+    '../assets/alienEncounter/weedAlien.png',
     'weedAlien',
     'gone'
   );
   const question = getImgWithClass(
-    '/assets/alienEncounter/alienQuestion.png',
+    '../assets/alienEncounter/alienQuestion.png',
     'alienQuestion',
     'gone'
   );
@@ -265,12 +265,12 @@ function findingAlienFriend() {
 // Almost identical to findingAlienFriend
 function boyAnsweringAlien() {
   const alien = getImgWithClass(
-    '/assets/alienEncounter/passItBoy.png',
+    '../assets/alienEncounter/passItBoy.png',
     'boyAnswering',
     'gone'
   );
   const question = getImgWithClass(
-    '/assets/alienEncounter/boyAnswer2.png',
+    '../assets/alienEncounter/boyAnswer2.png',
     'boyAnswer',
     'gone'
   );
@@ -311,24 +311,24 @@ function smokeTrip() {
   const tripContainer = getWrapperContainer('smoketripContainer', true);
 
   const burgerBoy = getImgWithClass(
-    '/assets/smoketrip/burger_S.webp',
+    '../assets/smoketrip/burger_S.webp',
     'burgerBoy',
     'gone',
     'bounce'
   );
   const popcornBoy = getImgWithClass(
-    '/assets/smoketrip/popcorn_S.webp',
+    '../assets/smoketrip/popcorn_S.webp',
     'popcornBoy',
     'gone'
   );
   const gulpBoy = getImgWithClass(
-    '/assets/smoketrip/gulp_S.webp',
+    '../assets/smoketrip/gulp_S.webp',
     'gulpBoy',
     'gone',
     'bounce'
   );
   const pizza = getImgWithClass(
-    '/assets/smoketrip/pizza_S.webp',
+    '../assets/smoketrip/pizza_S.webp',
     'pizza',
     'gone',
     'bounce'
@@ -405,13 +405,13 @@ function meetToad() {
   const toadEncounterContainer = getWrapperContainer('toadEncounter', true);
 
   const toad = getImgWithClass(
-    '/assets/toadEncounter/trippToad.png',
+    '../assets/toadEncounter/trippToad.png',
     'toad',
     'gone'
   );
 
   const talk = getImgWithClass(
-    '/assets/toadEncounter/trySome.png',
+    '../assets/toadEncounter/trySome.png',
     'talk',
     'gone'
   );
@@ -445,19 +445,21 @@ function meetToad() {
   );
 }
 
+function answerToad() {}
+
 // Run all logic
 function main() {
   master
     .add(baseAnimation())
     .add(animateAndUpdateText('Full of ambitions, as grand as can be'))
     .add(animateAndUpdateText('Dreaming of other places'))
-    .add(addStory('/assets/elon/computer.jpg'))
+    .add(addStory('../assets/elon/computer.jpg'))
     .add(animateAndUpdateText('In a sleepy haze, he said to himself'))
     .add(animateAndUpdateText('"I should head to Mars"'))
     .add(animateAndUpdateText('No second thought was given'))
-    .add(addStory('./assets/elon/hero.jpg'))
+    .add(addStory('../assets/elon/hero.jpg'))
     .add(animateAndUpdateText('And of the little boy went'))
-    .add(addStory('./assets/elon/flyingAway.jpg'))
+    .add(addStory('../assets/elon/flyingAway.jpg'))
     .add(animateAndUpdateText('He travelled many planets'))
     .add(addPlanets())
     .add(findingHostileEnviroment())

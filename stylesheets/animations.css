@@ -1,14 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  overflow: hidden;
-}
-
 .bounce {
   -webkit-animation-name: bounce;
           animation-name: bounce;
@@ -401,4 +390,4 @@ body {
   -webkit-transform: rotate(20deg);
           transform: rotate(20deg);
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=animations.css.map */
