@@ -1,7 +1,16 @@
 const master = gsap.timeline();
-const container = document.querySelector('.animationContainer');
+let container = document.querySelector('.animationContainer');
 const img = document.querySelector('.elonImg');
 const text = document.querySelector('.descriptionText');
+
+const preventAnimationRendering = () => {
+  if (window.innerWidth < 1366) {
+    container.remove();
+    container = null;
+  }
+};
+
+preventAnimationRendering();
 
 // Creates fade in and out animation
 function baseAnimation() {
@@ -448,7 +457,7 @@ function meetToad() {
 function answerToad() {}
 
 // Run all logic
-function main() {
+function startAnimation() {
   master
     .add(baseAnimation())
     .add(animateAndUpdateText('Full of ambitions, as grand as can be'))
@@ -478,4 +487,7 @@ function main() {
   // .add(animateAndUpdateText('ELON MUSK'));
 }
 
-main();
+if (container !== null) {
+  startAnimation();
+  console.log('It exist');
+}

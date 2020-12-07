@@ -98,7 +98,6 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  max-width: 1920px;
   margin: 0 auto;
   background-color: black;
   display: -webkit-box;
@@ -111,6 +110,12 @@
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
+}
+
+@media screen and (max-width: 1365px) {
+  .animationContainer {
+    display: none;
+  }
 }
 
 .elonImg {
@@ -177,6 +182,11 @@
 
 .hostile {
   position: absolute;
+  width: 100%;
+}
+
+.hostile .land {
+  width: 100%;
 }
 
 .hostile .blueDino,

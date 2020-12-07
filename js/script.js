@@ -40,6 +40,12 @@ const getStocktip = () => {
   });
 };
 
+// const preventAnimationRendering = () => {
+//   if (window.innerWidth < 1366) {
+//     document.querySelector('.animationContainer').remove();
+//   }
+// };
+
 const main = () => {
   skipButtonClick();
   startTheParty();
