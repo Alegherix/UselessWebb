@@ -3,6 +3,8 @@ let container = document.querySelector('.animationContainer');
 const img = document.querySelector('.elonImg');
 const text = document.querySelector('.descriptionText');
 
+// Used to prevent loading animations if not on desktop
+
 const preventAnimationRendering = () => {
   if (window.innerWidth < 1366) {
     container.remove();
@@ -108,6 +110,7 @@ function addPlanets() {
     'boyVisiting',
     'gone'
   );
+  const currentWidth = window.innerWidth + 200;
 
   container.appendChild(bg);
   container.appendChild(mid);
@@ -138,9 +141,10 @@ function addPlanets() {
   });
 
   const tlFive = getToogleTimeline(flyingBoy);
+
   tlFive.to('.boyVisiting', 4, {
     motionPath: {
-      path: 'M -200 150 q 150 -300 2150 0',
+      path: `M -200 150 q 150 -300 ${currentWidth} 0`,
     },
   });
 
@@ -197,9 +201,7 @@ function findingHostileEnviroment() {
     opacity: 0,
   });
 
-  const fadeInDinos = gsap.timeline({
-    onStart: () => console.log('Starting dino fadein'),
-  });
+  const fadeInDinos = gsap.timeline();
   fadeInDinos.from('.fadeIn', 1, {
     opacity: 0,
     stagger: 0.4,
@@ -316,7 +318,6 @@ function boyAnsweringAlien() {
 }
 
 function smokeTrip() {
-  //Skapa bakgrundsContainer
   const tripContainer = getWrapperContainer('smoketripContainer', true);
 
   const burgerBoy = getImgWithClass(
@@ -456,6 +457,12 @@ function meetToad() {
 
 function answerToad() {}
 
+function endTimeline() {
+  const tl = gsap.timeline({ onComplete: () => container.remove() });
+
+  return tl;
+}
+
 // Run all logic
 function startAnimation() {
   master
@@ -479,15 +486,16 @@ function startAnimation() {
     .add(animateAndUpdateText('Without hesitation he inhaled'))
     .add(smokeTrip())
     .add(animateAndUpdateText('He felt a tap on his shoulder'))
-    .add(meetToad());
+    .add(meetToad())
 
-  // .add(animateAndUpdateText('You probably know his name'));
-  // .add(animateAndUpdateText('You probably know his name'));
-  // .add(animateElonSecond())
-  // .add(animateAndUpdateText('ELON MUSK'));
+    .add(animateAndUpdateText('You probably know his name'))
+    // .add(animateAndUpdateText('You probably know his name'));
+    // .add(animateElonSecond())
+    .add(animateAndUpdateText('ELON MUSK'))
+    .add(endTimeline());
 }
 
 if (container !== null) {
   startAnimation();
-  console.log('It exist');
+  // container.remove();
 }

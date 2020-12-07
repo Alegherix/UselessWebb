@@ -1,18 +1,30 @@
 const skipButtonClick = () => {
   const button = document.querySelector('.skipButton');
-  if (button !== null) {
+  if (button) {
     button.addEventListener('click', () => {
-      console.log('clicked');
       document.querySelector('.animationContainer').remove();
       button.remove();
     });
   }
 };
 
+// Remove animations if resizing lower than 1366px and started on desktop
+// const listenToResize = () => {
+//   window.addEventListener('resize', () => {
+//     if (window.innerWidth < 1366 && container) {
+//       container.remove();
+//       // Set to null to prevent further activation of this listener.
+//       container = null;
+//     }
+//   });
+// };
+
 const startTheParty = () => {
   const btn = document.querySelector('.partyBtn');
   btn.addEventListener('click', () => {
+    console.log('Trying to start the party');
     document.querySelector('.partyContainer').classList.toggle('party');
+    document.querySelector('.dancingElon').classList.toggle('gone');
   });
 };
 
@@ -40,16 +52,11 @@ const getStocktip = () => {
   });
 };
 
-// const preventAnimationRendering = () => {
-//   if (window.innerWidth < 1366) {
-//     document.querySelector('.animationContainer').remove();
-//   }
-// };
-
 const main = () => {
   skipButtonClick();
   startTheParty();
   getStocktip();
+  // listenToResize();
 };
 
 main();
