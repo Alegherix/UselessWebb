@@ -2,6 +2,8 @@ $lawn: #00ee43;
 $midnight: #1f1f1f;
 $night: #2c2c2c;
 $evening: #3e3e3e;
+$regularFont: 'Roboto-Regular';
+$fatFont: 'Roboto-Bold';
 
 @font-face {
   font-family: 'Roboto-Regular';
@@ -29,15 +31,23 @@ $evening: #3e3e3e;
 
 body {
   background-color: $midnight;
-  font-family: 'Roboto-Regular';
+  font-family: $regularFont;
 }
 
 h1 {
   font-size: 34px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 50px;
+  }
 }
 h2 {
   font-size: 32px;
   color: $lawn;
+
+  @media screen and (min-width: 768px) {
+    font-size: 44px;
+  }
 }
 
 h1,
@@ -46,11 +56,16 @@ p {
   color: white;
 }
 
+span {
+  font-family: $fatFont;
+}
+
 button {
   background-color: $lawn;
   padding: 1rem;
   border-radius: 10px;
   border: none;
+  max-width: 350px;
 
   &:hover {
     background-color: #0ac940;
@@ -119,22 +134,43 @@ button {
     margin: 0 auto;
     margin-bottom: 1rem;
     width: 95%;
-    max-width: 600px;
+    max-width: 700px;
     max-height: 90%;
   }
 }
 
 .knowledgeContainer {
-  text-align: center;
-  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  background-color: $evening;
-  padding-bottom: 2rem;
+  .knowledgeMeme {
+    display: none;
+    img {
+      width: 100%;
+      height: 100%;
+    }
 
-  p {
-    padding: 0rem 2rem;
+    @media screen and(min-width: 1024px) {
+      display: block;
+    }
+  }
+  .knowledgeItems {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    background-color: $evening;
+    padding-bottom: 2rem;
+
+    p {
+      padding: 0rem 2rem;
+      text-align: left;
+
+      @media screen and (min-width: 1600px) {
+        font-size: 22px;
+        text-align: left;
+      }
+    }
   }
 }
 
@@ -144,10 +180,10 @@ button {
   padding: 1rem;
   background-color: $night;
   align-items: center;
+  // min-height: 30vh;
 
   .dankTips {
     font-size: 16px;
-    font-weight: 800;
     margin-bottom: 0.2rem;
   }
 

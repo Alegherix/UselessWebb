@@ -11,25 +11,33 @@
 ### Reqs
 
 The project should use at least three types of event listeners e.g. scroll, click and keypress.
-Click -> MouseEnter -> MouseLeave
+-> Click = DONE
+-> Resize = DONE
+-> Mouseover = TBD
 
 The project should use some kind of iteration e.g. map, forEach or for.
-->
+-> getMasterTimeline() in utility does this.
 
 The project should use arrays or objects or both to store values.
 -> StockTips
 
 The project should have a nice user interface with consistent margins and paddings.
+-> DONE
 
 The project should use CSS variables for colors and font families..
+-> DONE
 
 The project should use at least one self hosted font with woff and woff2 format.
+-> DONE
 
 The project should be responsive and be built using the method mobile-first.
+-> DONE
 
 The project should use responsive images when using images.
+TBD
 
 The project should implement an accessible graphical user interface.
+TBD
 
 The project must not include any coding errors, warning or notices.
 
