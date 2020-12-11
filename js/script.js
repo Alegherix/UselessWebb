@@ -9,22 +9,29 @@ const skipButtonClick = () => {
 };
 
 // Remove animations if resizing lower than 1366px and started on desktop
-// const listenToResize = () => {
-//   window.addEventListener('resize', () => {
-//     if (window.innerWidth < 1366 && container) {
-//       container.remove();
-//       // Set to null to prevent further activation of this listener.
-//       container = null;
-//     }
-//   });
-// };
+const listenToResize = () => {
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 1366 && container) {
+      container.remove();
+      // Set to null to prevent further activation of this listener.
+      container = null;
+    }
+  });
+};
 
 const startTheParty = () => {
   const btn = document.querySelector('.partyBtn');
   btn.addEventListener('click', () => {
     console.log('Trying to start the party');
+    const danceContainer = document.querySelector('.dancingElon');
     document.querySelector('.partyContainer').classList.toggle('party');
-    document.querySelector('.dancingElon').classList.toggle('gone');
+    danceContainer.classList.toggle('gone');
+    if (!danceContainer.classList.contains('gone')) {
+      danceContainer.autoplay = true;
+      danceContainer.play();
+    } else {
+      danceContainer.pause();
+    }
   });
 };
 
@@ -56,7 +63,7 @@ const main = () => {
   skipButtonClick();
   startTheParty();
   getStocktip();
-  // listenToResize();
+  listenToResize();
 };
 
 main();
