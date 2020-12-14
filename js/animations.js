@@ -554,9 +554,8 @@ function startAnimation() {
     .add(meetToad())
     .add(answerToad())
     .add(tripBalls())
-    .add(animateAndUpdateText("And that's where it all bagin"))
+    .add(animateAndUpdateText("And that's where it all began"))
     .add(animateAndUpdateText('You probably know his name'))
-
     .add(animateAndUpdateText('ELON MUSK'))
     .add(endTimeline());
 }
