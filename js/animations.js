@@ -529,5 +529,4 @@ function startAnimation() {
 
 if (container !== null) {
   startAnimation();
-  // container.remove();
 }

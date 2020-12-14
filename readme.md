@@ -8,12 +8,17 @@
 
 ### Testers
 
+Hugo Sundberg
+Jakob Gustafsson
+Jonathan Larsson
+Evelyn Fredin
+
 ### Reqs
 
 The project should use at least three types of event listeners e.g. scroll, click and keypress.
 -> Click = DONE
 -> Resize = DONE
--> Mouseover = TBD
+-> Mouseover = Done
 
 The project should use some kind of iteration e.g. map, forEach or for.
 -> DONE getMasterTimeline() in utility does this.
@@ -43,6 +48,7 @@ The project must not include any coding errors, warning or notices.
 -> Done
 
 The project must be tested on at least two of your classmates computers. Add the testers name to the README.md file.
+-> Done
 
 The project should be deployed to either Netlify or Vercel
 -> DONE

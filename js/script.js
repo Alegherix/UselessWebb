@@ -35,6 +35,13 @@ const startTheParty = () => {
   });
 };
 
+const talkWhenMouseOver = () => {
+  const img = document.querySelector('.knowledgeMeme');
+  img.addEventListener('mouseover', () => {
+    console.log('Hi im Elon, the Musk!');
+  });
+};
+
 const getStocktip = () => {
   const memeStockTickers = [
     'PLTR',
@@ -64,6 +71,7 @@ const main = () => {
   startTheParty();
   getStocktip();
   listenToResize();
+  talkWhenMouseOver();
 };
 
 main();
