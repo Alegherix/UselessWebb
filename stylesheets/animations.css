@@ -407,7 +407,9 @@
   width: 100%;
 }
 
-.tripContainer .vision {
+.tripContainer .vision,
+.tripContainer .deer,
+.tripContainer .tesla {
   position: absolute;
   width: 100%;
   height: 100%;

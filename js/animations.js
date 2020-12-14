@@ -468,7 +468,7 @@ function answerToad() {
 }
 
 function tripBalls() {
-  const tripContainer = getWrapperContainer('tripContainer', true);
+  const tripContainer = getWrapperContainer('tripContainer');
 
   const vision = getImgWithClass(
     '../assets/acidtrip/vision.jpg',
@@ -476,18 +476,50 @@ function tripBalls() {
     'gone'
   );
 
+  const deer = getImgWithClass('../assets/acidtrip/deer.jpg', 'deer');
+  const tesla = getImgWithClass(
+    '../assets/acidtrip/tesla.jpg',
+    'tesla',
+    'gone'
+  );
+
   container.appendChild(tripContainer);
   tripContainer.appendChild(vision);
+  tripContainer.appendChild(deer);
+  tripContainer.appendChild(tesla);
 
   const visionTl = getToogleTimeline(vision);
-  visionTl
-    .from('.vision', 0.6, {
+  visionTl.fromTo(
+    '.vision',
+    { opacity: 0 },
+    { opacity: 1, duration: 0.4, repeat: 3 }
+  );
+
+  const deerTl = getToogleTimeline(vision);
+  deerTl
+    .from('.deer', 0.3, {
       opacity: 0,
     })
-    .to('.vision', 0.4, { opacity: 0 })
-    .to('.vision', 0.4, { opacity: 1 });
+    .to('.deer', 0.4, { opacity: 0 })
+    .to('.deer', 0.3, { opacity: 1 })
+    .to('.deer', 1, {
+      rotation: 1800,
+      scale: 2.5,
+    });
 
-  return getMasterTimeline(container, tripContainer, 'tripContainer', visionTl);
+  const teslaTl = getToogleTimeline(tesla);
+  teslaTl.from('.tesla', 0.4, {
+    opacity: 0,
+  });
+
+  return getMasterTimeline(
+    container,
+    tripContainer,
+    'tripContainer',
+    visionTl,
+    deerTl,
+    teslaTl
+  );
 }
 
 // Cleanup
@@ -522,7 +554,9 @@ function startAnimation() {
     .add(meetToad())
     .add(answerToad())
     .add(tripBalls())
+    .add(animateAndUpdateText("And that's where it all bagin"))
     .add(animateAndUpdateText('You probably know his name'))
+
     .add(animateAndUpdateText('ELON MUSK'))
     .add(endTimeline());
 }
