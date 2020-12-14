@@ -122,8 +122,6 @@ function addPlanets() {
   return masterTl;
 }
 
-function findFriends() {}
-
 function findingHostileEnviroment() {
   const land = getImgWithClass(
     '../assets/hostileEncounter/hostileLand.webp',
@@ -476,7 +474,17 @@ function tripBalls() {
     'gone'
   );
 
+  const secondVision = getImgWithClass(
+    '../assets/acidtrip/secondTrip.jpg',
+    'secondVision',
+    'gone'
+  );
+
   const deer = getImgWithClass('../assets/acidtrip/deer.jpg', 'deer');
+  const fishEater = getImgWithClass(
+    '../assets/acidtrip/fishEater.webp',
+    'fishEater'
+  );
   const tesla = getImgWithClass(
     '../assets/acidtrip/tesla.jpg',
     'tesla',
@@ -487,6 +495,8 @@ function tripBalls() {
   tripContainer.appendChild(vision);
   tripContainer.appendChild(deer);
   tripContainer.appendChild(tesla);
+  tripContainer.appendChild(secondVision);
+  tripContainer.appendChild(fishEater);
 
   const visionTl = getToogleTimeline(vision);
   visionTl.fromTo(
@@ -512,21 +522,38 @@ function tripBalls() {
     opacity: 0,
   });
 
+  const fishEaterTl = getToogleTimeline(fishEater);
+  fishEaterTl.from('.fishEater', 0.4, {
+    opacity: 0,
+  });
+
+  const secondVisionTl = getToogleTimeline(secondVision);
+  secondVisionTl.fromTo(
+    '.secondVision',
+    { opacity: 0 },
+    { opacity: 1, duration: 0.4, repeat: 2 }
+  );
+
+  const primaryTl = gsap.timeline({
+    onComplete: () => {
+      secondVision.classList.toggle('gone');
+    },
+  });
+  primaryTl.add(visionTl);
+  primaryTl.add(deerTl);
+  primaryTl.add(secondVisionTl);
   return getMasterTimeline(
     container,
     tripContainer,
     'tripContainer',
-    visionTl,
-    deerTl,
+    primaryTl,
     teslaTl
   );
 }
 
 // Cleanup
 function endTimeline() {
-  const tl = gsap.timeline({ onComplete: () => container.remove() });
-
-  return tl;
+  return gsap.timeline({ onComplete: () => container.remove() });
 }
 
 // Run all logic

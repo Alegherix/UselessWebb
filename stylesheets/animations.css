@@ -409,7 +409,8 @@
 
 .tripContainer .vision,
 .tripContainer .deer,
-.tripContainer .tesla {
+.tripContainer .tesla,
+.tripContainer .secondVision {
   position: absolute;
   width: 100%;
   height: 100%;
