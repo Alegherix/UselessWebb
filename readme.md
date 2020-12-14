@@ -16,10 +16,10 @@ The project should use at least three types of event listeners e.g. scroll, clic
 -> Mouseover = TBD
 
 The project should use some kind of iteration e.g. map, forEach or for.
--> getMasterTimeline() in utility does this.
+-> DONE getMasterTimeline() in utility does this.
 
 The project should use arrays or objects or both to store values.
--> StockTips
+-> DONE StockTips
 
 The project should have a nice user interface with consistent margins and paddings.
 -> DONE
@@ -44,3 +44,4 @@ The project must not include any coding errors, warning or notices.
 The project must be tested on at least two of your classmates computers. Add the testers name to the README.md file.
 
 The project should be deployed to either Netlify or Vercel
+-> DONE

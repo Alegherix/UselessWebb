@@ -4,7 +4,7 @@ const img = document.querySelector('.elonImg');
 const text = document.querySelector('.descriptionText');
 
 // Used to prevent loading animations if not on desktop
-
+// Prevents images from loading
 const preventAnimationRendering = () => {
   if (window.innerWidth < 1366) {
     container.remove();
@@ -39,43 +39,43 @@ function animateAndUpdateText(inputText) {
   return tl;
 }
 
-function animateElon() {
-  const tl = getToogleTimelineTest(img);
-  tl.to('.elonImg', {
-    opacity: 1,
-    duration: 1.2,
-    ease: Power0.easeNone,
-  }).to('.elonImg', {
-    opacity: 0,
-    delay: 0.5,
-    duration: 1.2,
-  });
-  return tl;
-}
+// function animateElon() {
+//   const tl = getToogleTimelineTest(img);
+//   tl.to('.elonImg', {
+//     opacity: 1,
+//     duration: 1.2,
+//     ease: Power0.easeNone,
+//   }).to('.elonImg', {
+//     opacity: 0,
+//     delay: 0.5,
+//     duration: 1.2,
+//   });
+//   return tl;
+// }
 
-function animateElonSecond() {
-  const tl = gsap.timeline({
-    onStart: () => {
-      img.src = '../assets/memelord.jpg';
-      img.classList.toggle('gone');
-      text.classList.toggle('gone');
-    },
-    onComplete: () => {
-      img.classList.toggle('gone');
-      text.classList.toggle('gone');
-    },
-  });
-  tl.to('.elonImg', {
-    opacity: 1,
-    duration: 1.2,
-    ease: Power0.easeNone,
-  }).to('.elonImg', {
-    opacity: 0,
-    delay: 0.5,
-    duration: 1.2,
-  });
-  return tl;
-}
+// function animateElonSecond() {
+//   const tl = gsap.timeline({
+//     onStart: () => {
+//       img.src = '../assets/memelord.jpg';
+//       img.classList.toggle('gone');
+//       text.classList.toggle('gone');
+//     },
+//     onComplete: () => {
+//       img.classList.toggle('gone');
+//       text.classList.toggle('gone');
+//     },
+//   });
+//   tl.to('.elonImg', {
+//     opacity: 1,
+//     duration: 1.2,
+//     ease: Power0.easeNone,
+//   }).to('.elonImg', {
+//     opacity: 0,
+//     delay: 0.5,
+//     duration: 1.2,
+//   });
+//   return tl;
+// }
 
 function addStory(imgPath) {
   const tl = getToogleTimelineTest(img, imgPath);
@@ -469,13 +469,13 @@ function startAnimation() {
     .add(baseAnimation())
     .add(animateAndUpdateText('Full of ambitions, as grand as can be'))
     .add(animateAndUpdateText('Dreaming of other places'))
-    .add(addStory('../assets/elon/computer.jpg'))
+    .add(addStory('../assets/elon/computer_XXL.webp'))
     .add(animateAndUpdateText('In a sleepy haze, he said to himself'))
     .add(animateAndUpdateText('"I should head to Mars"'))
     .add(animateAndUpdateText('No second thought was given'))
-    .add(addStory('../assets/elon/hero.jpg'))
+    .add(addStory('../assets/elon/hero_XXL.webp'))
     .add(animateAndUpdateText('And of the little boy went'))
-    .add(addStory('../assets/elon/flyingAway.jpg'))
+    .add(addStory('../assets/elon/flyingAway_XXL.webp'))
     .add(animateAndUpdateText('He travelled many planets'))
     .add(addPlanets())
     .add(findingHostileEnviroment())
@@ -489,8 +489,6 @@ function startAnimation() {
     .add(meetToad())
 
     .add(animateAndUpdateText('You probably know his name'))
-    // .add(animateAndUpdateText('You probably know his name'));
-    // .add(animateElonSecond())
     .add(animateAndUpdateText('ELON MUSK'))
     .add(endTimeline());
 }
