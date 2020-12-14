@@ -170,7 +170,8 @@
   }
 }
 
-.alienContainer {
+.alienContainer,
+.toadAnswerContainer {
   position: absolute;
   display: flex;
   max-width: 785px;
@@ -356,5 +357,17 @@
     top: 10%;
     width: 25%;
     transform: rotate(20deg);
+  }
+}
+
+.tripContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .vision {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 }

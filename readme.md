@@ -34,12 +34,13 @@ The project should be responsive and be built using the method mobile-first.
 -> DONE
 
 The project should use responsive images when using images.
-TBD
+-> Done
 
 The project should implement an accessible graphical user interface.
-TBD
+-> Done
 
 The project must not include any coding errors, warning or notices.
+-> Done
 
 The project must be tested on at least two of your classmates computers. Add the testers name to the README.md file.
 

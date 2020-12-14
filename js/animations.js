@@ -39,44 +39,6 @@ function animateAndUpdateText(inputText) {
   return tl;
 }
 
-// function animateElon() {
-//   const tl = getToogleTimelineTest(img);
-//   tl.to('.elonImg', {
-//     opacity: 1,
-//     duration: 1.2,
-//     ease: Power0.easeNone,
-//   }).to('.elonImg', {
-//     opacity: 0,
-//     delay: 0.5,
-//     duration: 1.2,
-//   });
-//   return tl;
-// }
-
-// function animateElonSecond() {
-//   const tl = gsap.timeline({
-//     onStart: () => {
-//       img.src = '../assets/memelord.jpg';
-//       img.classList.toggle('gone');
-//       text.classList.toggle('gone');
-//     },
-//     onComplete: () => {
-//       img.classList.toggle('gone');
-//       text.classList.toggle('gone');
-//     },
-//   });
-//   tl.to('.elonImg', {
-//     opacity: 1,
-//     duration: 1.2,
-//     ease: Power0.easeNone,
-//   }).to('.elonImg', {
-//     opacity: 0,
-//     delay: 0.5,
-//     duration: 1.2,
-//   });
-//   return tl;
-// }
-
 function addStory(imgPath) {
   const tl = getToogleTimelineTest(img, imgPath);
   tl.to('.elonImg', {
@@ -455,8 +417,80 @@ function meetToad() {
   );
 }
 
-function answerToad() {}
+function answerToad() {
+  const toadEncounterContainer = getWrapperContainer(
+    'toadAnswerContainer',
+    true
+  );
 
+  const boy = getImgWithClass(
+    '../assets/alienEncounter/passItBoy.png',
+    'boyAnswering',
+    'gone'
+  );
+
+  const answer = getImgWithClass(
+    '../assets/toadEncounterAnswer/gimmeDat.png',
+    'boyAnswer',
+    'gone'
+  );
+
+  container.appendChild(toadEncounterContainer);
+  toadEncounterContainer.appendChild(boy);
+  toadEncounterContainer.appendChild(answer);
+
+  const containerTl = getToogleTimeline(toadEncounterContainer);
+  containerTl.from('.toadAnswerContainer', 0.6, {
+    opacity: 0,
+  });
+
+  const boyTl = getToogleTimeline(boy);
+  boyTl.from('.boyAnswering', 0.8, {
+    ease: 'SlowMo.ease.config(0.7, 0.7, false)',
+    opacity: 0,
+  });
+
+  const answerTl = getToogleTimeline(answer);
+  answerTl.to('.boyAnswer', 1.2, {
+    opacity: 1,
+    top: '-20%',
+    scale: 0.9,
+  });
+
+  return getMasterTimeline(
+    container,
+    toadEncounterContainer,
+    'toadAnswerContainer',
+    containerTl,
+    boyTl,
+    answerTl
+  );
+}
+
+function tripBalls() {
+  const tripContainer = getWrapperContainer('tripContainer', true);
+
+  const vision = getImgWithClass(
+    '../assets/acidtrip/vision.jpg',
+    'vision',
+    'gone'
+  );
+
+  container.appendChild(tripContainer);
+  tripContainer.appendChild(vision);
+
+  const visionTl = getToogleTimeline(vision);
+  visionTl
+    .from('.vision', 0.6, {
+      opacity: 0,
+    })
+    .to('.vision', 0.4, { opacity: 0 })
+    .to('.vision', 0.4, { opacity: 1 });
+
+  return getMasterTimeline(container, tripContainer, 'tripContainer', visionTl);
+}
+
+// Cleanup
 function endTimeline() {
   const tl = gsap.timeline({ onComplete: () => container.remove() });
 
@@ -480,14 +514,14 @@ function startAnimation() {
     .add(addPlanets())
     .add(findingHostileEnviroment())
     .add(animateAndUpdateText('He made some friends along the way'))
-    .add(animateAndUpdateText('And then he made some more'))
     .add(findingAlienFriend())
     .add(boyAnsweringAlien())
     .add(animateAndUpdateText('Without hesitation he inhaled'))
     .add(smokeTrip())
     .add(animateAndUpdateText('He felt a tap on his shoulder'))
     .add(meetToad())
-
+    .add(answerToad())
+    .add(tripBalls())
     .add(animateAndUpdateText('You probably know his name'))
     .add(animateAndUpdateText('ELON MUSK'))
     .add(endTimeline());
