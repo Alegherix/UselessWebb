@@ -268,6 +268,7 @@ function boyAnsweringAlien() {
     .to('.alienContainer', 1, {
       opacity: 0,
     });
+
   const masterTl = gsap.timeline({
     onComplete: () => container.removeChild(alienContainer),
   });
@@ -542,6 +543,7 @@ function tripBalls() {
   primaryTl.add(visionTl);
   primaryTl.add(deerTl);
   primaryTl.add(secondVisionTl);
+
   return getMasterTimeline(
     container,
     tripContainer,

@@ -45,13 +45,6 @@ function getWrapperContainer(containerName, gone = false) {
   return container;
 }
 
-function getFadeoutTL(container) {
-  const fadeOut = gsap.timeline();
-  fadeOut.to(container, 1, {
-    opacity: 0,
-  });
-}
-
 // Used for creating a timeline which deletes Container
 // and fades out
 function getMasterTimeline(
